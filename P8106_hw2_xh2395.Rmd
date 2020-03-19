@@ -1,0 +1,49 @@
+---
+title: "P8106_hw2_xh2395"
+author: "Xin  He"
+date: "3/19/2020"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      message = FALSE)
+library(tidyverse)
+library(caret)
+theme1 <- trellis.par.get()
+theme1$plot.symbol$col <- rgb(.2, .4, .2, .5) 
+theme1$plot.symbol$pch <- 16
+theme1$plot.line$col <- rgb(.8, .1, .1, 1) 
+theme1$plot.line$lwd <- 2
+theme1$strip.background$col <- rgb(.0, .2, .6, .2)
+trellis.par.set(theme1)
+library(patchwork)
+library(splines)
+library(gam)
+library(mgcv)
+library(boot)
+library(ggplot2)
+library(pdp)
+library(earth)
+```
+
+## Homework 2 Description
+
+In this exercise, we build nonlinear models using the "College" data. The dataset
+contains statistics for 565 US Colleges from the 1995 issue of US News and World Report.
+The response variable is the out-of-state tuition (Outstate). In what follows, use the data excluding statistics for Columbia University (i.e., the 125th observation) to train the models.
+
+## Import the data
+
+```{r}
+college_df = read_csv("./data/College.csv")
+```
+
+## Set random seed
+
+```{r}
+set.seed(2020)
+```
+
+
+## Answer of the questions
